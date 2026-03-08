@@ -1,0 +1,69 @@
+<div id="view-dashboard" class="view-section">
+    <div class="card" style="margin-bottom: 24px;">
+        <div class="dashboard-reg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <!-- Registrar Ingreso -->
+            <div style="border-right: 1px solid var(--border-color); padding-right: 16px;">
+                <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--accent-green);"><i class="fas fa-plus-circle"></i> Registrar Ingreso</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <input type="date" id="inc-date" class="btn-outline" style="width: 100%;">
+                    <select id="inc-wallet" class="btn-outline" style="width: 100%;">
+                        <option value="" disabled selected>Billetera</option>
+                        <!-- Dinámico -->
+                    </select>
+                    <input type="text" id="inc-desc" placeholder="Descripción" class="btn-outline" style="width: 100%; grid-column: span 2;">
+                    <input type="number" id="inc-amount" placeholder="Monto" class="btn-outline" style="width: 100%;">
+                </div>
+                <button class="btn-primary" id="btn-reg-income" style="width: 100%; margin-top: 16px; background-color: var(--accent-green); color: #000;">Guardar Ingreso</button>
+            </div>
+            
+            <!-- Registrar Gasto -->
+            <div>
+                <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--accent-red);"><i class="fas fa-minus-circle"></i> Registrar Gasto</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <input type="date" id="exp-date" class="btn-outline" style="width: 100%;">
+                    <select id="exp-wallet" class="btn-outline" style="width: 100%;">
+                        <option value="" disabled selected>Billetera</option>
+                        <!-- Dinámico -->
+                    </select>
+                    <input type="text" id="exp-desc" placeholder="Descripción" class="btn-outline" style="width: 100%; grid-column: span 2;">
+                    <select id="exp-cat" class="btn-outline" style="width: 100%;">
+                        <option value="" disabled selected>Categoría</option>
+                        <!-- Dinámico -->
+                    </select>
+                    <input type="number" id="exp-amount" placeholder="Monto" class="btn-outline" style="width: 100%;">
+                </div>
+                <button class="btn-primary" id="btn-reg-expense" style="width: 100%; margin-top: 16px; background-color: var(--accent-red); color: #000;">Guardar Gasto</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-dashboard">
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">RESUMEN FINANCIERO</div>
+            <div class="portfolio-content">
+                <div class="chart-container">
+                    <div class="doughnut-placeholder" id="main-dashboard-chart" style="border-color: rgba(197, 160, 89, 0.2);">
+                        <div class="doughnut-inner">
+                            <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Saldo total</span>
+                            <span id="total-balance-chart">$0</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="legend">
+                    <li class="legend-item"><span class="dot" style="background-color: var(--accent-green);"></span> Ingresos | <span id="dash-total-incomes" style="color: #fff;">$0</span></li>
+                    <li class="legend-item"><span class="dot" style="background-color: var(--accent-red);"></span> Gastos | <span id="dash-total-expenses" style="color: #fff;">$0</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">ESTADO GLOBAL</div>
+            <ul class="stats-list">
+                <li class="stat-row"><span>Ingresos</span> <span style="color:var(--accent-green); font-weight: 700;" id="stat-total-incomes">+$0</span></li>
+                <li class="stat-row"><span>Gastos</span> <span style="color:var(--accent-red); font-weight: 700;" id="stat-total-expenses">-$0</span></li>
+                <li class="stat-row" style="border-top: 1px solid var(--border-color); margin-top: 12px; padding-top: 12px;">
+                    <span style="font-weight: 700;">Balance</span> <span id="total-balance-stat" style="font-size: 18px; font-weight: 800; color: #fff;">$0</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

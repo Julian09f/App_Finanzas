@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance - Gestión de Finanzas Personales</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="mouse-glow" id="mouse-glow"></div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                Fina<span>nce</span>
+            </div>
+            <nav class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active" id="nav-dashboard">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-movimientos">
+                        <i class="fas fa-exchange-alt"></i> Movimientos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-billeteras">
+                        <i class="fas fa-wallet"></i> Billeteras
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-categorias">
+                        <i class="fas fa-tags"></i> Categorías
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="nav-micuenta">
+                        <i class="fas fa-user-circle"></i> Mi cuenta
+                    </a>
+                </li>
+            </nav>
+            <div class="sidebar-footer" style="padding: 20px; border-top: 1px solid var(--border-color); margin-top: auto;">
+                <a href="#" class="nav-link" onclick="handleLogout(event)" style="color: #e74c3c;">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <h1 id="view-title">Dashboard</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-menu-toggle" class="btn-menu-toggle" aria-label="Abrir menú">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="user-profile">
+                        <div class="avatar" id="header-avatar" style="background-size: cover; background-position: center;"></div>
+                        <div class="user-info">
+                            <span class="name" id="header-user-name">Usuario</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenedor dinámico de vistas -->
+            <div id="view-container">
+                <div style="display: flex; justify-content: center; align-items: center; height: 300px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: var(--accent-blue);"></i>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Scripts Base -->
+    <script src="js/managers/StorageManager.js"></script>
+    <script src="js/managers/AuthManager.js"></script>
+    <script src="js/managers/CategoryManager.js"></script>
+    
+    <!-- Infrastructure -->
+    <script type="module" src="js/app.js"></script>
+    <!-- mobile.js reemplazado por script inline -->
+    
+    <!-- Módulos de Lógica -->
+    <script src="js/modules/utils.js"></script>
+    <script src="js/modules/ui.js"></script>
+    <script src="js/modules/dashboard.js"></script>
+    <script src="js/modules/movements.js"></script>
+    <script src="js/modules/wallets.js"></script>
+    <script src="js/modules/categories.js"></script>
+    <script src="js/modules/account.js"></script>
+    
+    <!-- Controlador Principal -->
+    <script type="module" src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.getElementById('mouse-glow');
+            if (glow) {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+            }
+        });
+
+        // === MENU HAMBURGUESA MÓVIL ===
+        (function() {
+            var sidebar = document.querySelector('.sidebar');
+            var btn = document.getElementById('btn-menu-toggle');
+            var dynamicOverlay = null;
+
+            function openMenu() {
+                if (sidebar) sidebar.classList.add('active');
+
+                // Crear overlay nuevo cada vez (sin CSS que interfiera)
+                if (!dynamicOverlay) {
+                    dynamicOverlay = document.createElement('div');
+                    dynamicOverlay.style.cssText = [
+                        'position:fixed',
+                        'top:0',
+                        'left:0',
+                        'width:100vw',
+                        'height:100vh',
+                        'background-color:rgba(0,0,0,0.7)',
+                        'z-index:1000',
+                        'cursor:pointer'
+                    ].join(';');
+                    dynamicOverlay.addEventListener('click', closeMenu);
+                    document.body.appendChild(dynamicOverlay);
+                }
+            }
+
+            function closeMenu() {
+                if (sidebar) sidebar.classList.remove('active');
+                if (dynamicOverlay) {
+                    dynamicOverlay.remove();
+                    dynamicOverlay = null;
+                }
+            }
+
+            if (btn) {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (sidebar && sidebar.classList.contains('active')) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                });
+            }
+
+            // Cerrar al clickear links del sidebar
+            document.addEventListener('click', function(e) {
+                var link = e.target.closest('.nav-link');
+                if (link && dynamicOverlay) {
+                    setTimeout(closeMenu, 150);
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) closeMenu();
+            });
+        })();
+    </script>
+</body>
+</html>

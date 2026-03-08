@@ -1,0 +1,66 @@
+/* ==================== */
+/* VARIABLES GLOBALES */
+/* ==================== */
+
+:root {
+    /* COLORES */
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #141414;
+    --sidebar-bg: #000000;
+    --sidebar-hover: #1a1a1a;
+    --text-main: #ffffff;
+    --text-muted: #888888;
+
+    /* ACENTOS */
+    --accent-gold: #c5a059;
+    --accent-blue: #3b82f6;
+    --accent-blue-dark: #2563eb;
+    --accent-orange: #ff9f43;
+    --accent-purple: #d16aff;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+
+    /* ESTADOS */
+    --success-light: rgba(16, 185, 129, 0.1);
+    --warning-light: rgba(243, 156, 18, 0.1);
+    --error-light: rgba(239, 68, 68, 0.1);
+
+    /* BORDES Y SOMBRAS */
+    --border-color: #222222;
+    --border-light: #333333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.8);
+
+    /* ESPACIADO */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 40px;
+
+    /* BORDER RADIUS */
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-full: 30px;
+    --radius-circle: 50%;
+
+    /* TRANSICIONES */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* LAYOUT */
+    --sidebar-width: 240px;
+    --header-height: 80px;
+    --main-content-padding: 24px 40px;
+
+    /* GRADIENTES Y FONDOS ESPECIALES */
+    --dark-bg: #0d0d0d;
+    --dark-card: #161616;
+    --accent-gold-premium: #c5a059;
+    --gradient-login: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+}

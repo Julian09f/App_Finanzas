@@ -1,0 +1,66 @@
+<div class="view-section">
+    <div id="categories-main-view">
+        <div class="card">
+            <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">GESTIONAR CATEGORÍAS</div>
+            <div id="categories-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px;">
+                <!-- Dinámico -->
+                <div class="card" onclick="promptNewCategory()" style="border: 1px dashed var(--border-light); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; text-align: center; background: rgba(255, 255, 255, 0.02);">
+                    <div style="font-size: 24px; color: var(--text-muted); margin-bottom: 4px;">+</div>
+                    <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Nueva</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detalle de Categoría (Oculto por defecto) -->
+    <div id="category-detail-view" style="display: none;">
+        <button onclick="hideCategoryDetail()" class="btn-outline" style="margin-bottom: 24px; border: none; padding: 0; color: var(--accent-gold); display: flex; align-items: center; gap: 8px; font-weight: 700; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">
+            <i class="fas fa-arrow-left" style="font-size: 14px;"></i> Volver a categorías
+        </button>
+        <div class="card">
+            <div class="card-title" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <span id="detail-category-emoji">📁</span> 
+                    <span id="detail-category-name" style="color: #fff; margin-left: 8px;">Sin nombre</span>
+                </div>
+                <span id="detail-category-total" style="color: var(--accent-red); font-weight: 800; font-size: 20px;">Total: $0</span>
+            </div>
+
+            <!-- Mini Barra de Filtros para Categoría -->
+            <div class="category-filters" style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); padding: 16px; border-radius: 12px; border: 1px solid var(--border-color);">
+                <div style="flex: 1; min-width: 120px;">
+                    <label style="display: block; font-size: 10px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Fecha</label>
+                    <input type="date" id="category-filter-date" class="btn-outline" style="width: 100%; padding: 6px; font-size: 13px;">
+                </div>
+                <div style="flex: 2; min-width: 180px;">
+                    <label style="display: block; font-size: 10px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Descripción</label>
+                    <input type="text" id="category-filter-desc" placeholder="Buscar..." class="btn-outline" style="width: 100%; padding: 6px; font-size: 13px;">
+                </div>
+                <div style="flex: 1; min-width: 120px;">
+                    <label style="display: block; font-size: 10px; color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Billetera</label>
+                    <select id="category-filter-wallet" class="btn-outline" style="width: 100%; padding: 6px; font-size: 13px;">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+                <div style="display: flex; align-items: flex-end;">
+                    <button id="category-clear-filters" class="btn-outline" title="Limpiar Filtros" style="padding: 6px 10px;"><i class="fas fa-undo"></i></button>
+                </div>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;" id="table-category-details">
+                    <thead>
+                    <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">
+                        <th style="padding: 16px 12px;">Fecha</th>
+                        <th>Descripción</th>
+                        <th>Billetera</th>
+                        <th>Monto</th>
+                    </tr>
+                    </thead>
+                    <tbody style="color: #eee;">
+                        <!-- Dinámico -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="view-section">
+    <div class="account-grid">
+        <!-- Sidebar del Perfil -->
+        <div class="card account-sidebar-card" style="text-align: center;">
+            <div class="profile-avatar-large" id="profile-avatar" title="Haga clic para cambiar foto" style="margin: 0 auto 20px; border: 2px solid var(--accent-gold);"></div>
+            <h2 id="profile-name-display" style="margin-bottom: 4px; color: #fff; font-weight: 800;">Usuario</h2>
+            <p id="profile-email-display" style="color: var(--text-muted); font-size: 14px; margin-bottom: 32px;">correo@ejemplo.com</p>
+            <div style="margin-top: 30px; padding-top: 32px; border-top: 1px solid var(--border-color);">
+                <button class="btn-wallet-action withdraw" style="width: 100%; justify-content: center; padding: 14px; background: rgba(239, 68, 68, 0.1); color: var(--accent-red); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; font-weight: 700; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px;" onclick="deleteAccount()">
+                    <i class="fas fa-trash-alt"></i> Eliminar Cuenta
+                </button>
+                <p style="font-size: 10px; color: #666; margin-top: 12px; font-style: italic; line-height: 1.4;">Esta acción es irreversible y borrará todos tus datos permanentemente.</p>
+            </div>
+        </div>
+
+        <!-- Formularios de Ajustes -->
+        <div class="settings-content">
+            <!-- Información Personal -->
+                <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">INFORMACIÓN PERSONAL</div>
+                <div class="settings-group" style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Nombre Completo</label>
+                    <input type="text" id="edit-name" class="btn-outline" style="width: 100%; padding: 12px; font-size: 14px;" placeholder="Tu nombre">
+                </div>
+                <div class="settings-group" style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Correo Electrónico</label>
+                    <input type="email" id="edit-email" class="btn-outline" style="width: 100%; padding: 12px; font-size: 14px;" placeholder="ejemplo@correo.com">
+                </div>
+                <div class="settings-footer" style="padding-top: 8px;">
+                    <button class="btn-primary" onclick="savePersonalData()" style="width: 100%; border-radius: 8px;">Guardar Cambios</button>
+                </div>
+            </div>
+
+            <!-- Seguridad -->
+            <div class="card settings-card">
+                <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">SEGURIDAD</div>
+                <div class="settings-group" style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Nueva Contraseña</label>
+                    <input type="password" id="edit-password" class="btn-outline" style="width: 100%; padding: 12px; font-size: 14px;" placeholder="••••••••">
+                </div>
+                <div class="settings-group" style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Confirmar Contraseña</label>
+                    <input type="password" id="confirm-password" class="btn-outline" style="width: 100%; padding: 12px; font-size: 14px;" placeholder="••••••••">
+                </div>
+                <div class="settings-footer" style="padding-top: 8px;">
+                    <button class="btn-outline" onclick="updatePassword()" style="width: 100%; border-color: var(--accent-gold); color: var(--accent-gold); font-weight: 700; text-transform: uppercase; border-radius: 8px;">Actualizar Contraseña</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+</div>

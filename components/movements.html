@@ -1,0 +1,61 @@
+<div class="view-section">
+    <div class="card">
+        <div class="card-title" style="color: var(--accent-gold); font-weight: 700;">
+            TODOS LOS MOVIMIENTOS
+        </div>
+
+        <!-- Resumen de Movimientos -->
+        <div class="movements-summary" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+            <div class="summary-card" style="background: rgba(16, 185, 129, 0.05); padding: 16px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                <span style="display: block; font-size: 11px; color: var(--accent-green); text-transform: uppercase; font-weight: 700; margin-bottom: 4px; letter-spacing: 1px;">Total Ingresos</span>
+                <span id="mov-total-incomes" style="font-size: 24px; font-weight: 800; color: #fff;">+$0</span>
+            </div>
+            <div class="summary-card" style="background: rgba(239, 68, 68, 0.05); padding: 16px; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.2);">
+                <span style="display: block; font-size: 11px; color: var(--accent-red); text-transform: uppercase; font-weight: 700; margin-bottom: 4px; letter-spacing: 1px;">Total Gastos</span>
+                <span id="mov-total-expenses" style="font-size: 24px; font-weight: 800; color: #fff;">-$0</span>
+            </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filters-bar" style="display: flex; gap: 16px; margin-bottom: 24px; background: rgba(255, 255, 255, 0.02); padding: 16px; border-radius: 12px; align-items: flex-end; flex-wrap: wrap; border: 1px solid var(--border-color);">
+            <div class="filter-group" style="flex: 1; min-width: 150px;">
+                <label style="display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Fecha</label>
+                <input type="date" id="filter-date" class="btn-outline" style="width: 100%; padding: 8px;">
+            </div>
+            <div class="filter-group" style="flex: 2; min-width: 200px;">
+                <label style="display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Descripción</label>
+                <input type="text" id="filter-desc" placeholder="Buscar por descripción..." class="btn-outline" style="width: 100%; padding: 8px;">
+            </div>
+            <div class="filter-group" style="flex: 1; min-width: 150px;">
+                <label style="display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Categoría</label>
+                <select id="filter-category" class="btn-outline" style="width: 100%; padding: 8px;">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+            <div class="filter-group" style="flex: 1; min-width: 150px;">
+                <label style="display: block; font-size: 11px; color: var(--text-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;">Billetera</label>
+                <select id="filter-wallet" class="btn-outline" style="width: 100%; padding: 8px;">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+            <button class="btn-outline" id="clear-filters" style="padding: 10px; height: 38px;"><i class="fas fa-undo"></i></button>
+        </div>
+
+        <div class="table-container">
+            <table style="width: 100%; border-collapse: collapse;" id="table-movimientos">
+                <thead>
+                    <tr style="text-align: left; color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+                        <th style="padding: 16px 12px;">Fecha</th>
+                        <th>Descripción</th>
+                        <th>Billetera</th>
+                        <th>Categoría</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #eee;">
+                    <!-- Dinámico -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

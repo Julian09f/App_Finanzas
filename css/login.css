@@ -1,0 +1,42 @@
+/* ==================== */
+/* ESTILOS DE LOGIN */
+/* ==================== */
+/* Importar estilos base */
+@import url('variables.css');
+@import url('typography.css');
+@import url('components.css');
+@import url('responsive.css');
+
+/* Estilos específicos para la página de login */
+body {
+    background-color: var(--dark-bg);
+    background-image: var(--gradient-login);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+.mouse-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(50px);
+    transition: width 0.3s, height 0.3s;
+}
+
+.login-container {
+    position: relative;
+    z-index: 10;
+}
